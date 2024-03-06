@@ -12,7 +12,7 @@ import classnames from "classnames";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AiFillBug } from "react-icons/ai";
+import { FaBlog } from "react-icons/fa";
 
 const NavBar = () => {
   return (
@@ -21,11 +21,11 @@ const NavBar = () => {
         <Flex justify="between">
           <Flex align="center" gap="3">
             <Link href="/">
-              <AiFillBug />
+              <FaBlog />
             </Link>
             <NavLinks />
           </Flex>
-          <AuthStatus />
+          {/* <AuthStatus /> */}
         </Flex>
       </Container>
     </nav>
@@ -36,8 +36,8 @@ const NavLinks = () => {
   const currentPath = usePathname();
 
   const links = [
-    { label: "Dashboard", href: "/" },
-    { label: "Issues", href: "/issues/list" },
+    // { label: "Dashboard", href: "/" },
+    { label: "Blog", href: "/issues/list" },
   ];
 
   return (

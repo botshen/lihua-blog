@@ -18,7 +18,8 @@ const fetchUser = cache((issueId: number) =>
 );
 
 const IssueDetailPage = async ({ params }: Props) => {
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
+  const session = true;
 
   const issue = await fetchUser(parseInt(params.id));
 
@@ -32,7 +33,7 @@ const IssueDetailPage = async ({ params }: Props) => {
       {session && (
         <Box>
           <Flex direction="column" gap="4">
-            <AssigneeSelect issue={issue} />
+            {/* <AssigneeSelect issue={issue} /> */}
             <EditIssueButton issueId={issue.id} />
             <DeleteIssueButton issueId={issue.id} />
           </Flex>

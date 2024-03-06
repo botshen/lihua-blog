@@ -49,13 +49,13 @@ const IssueTable = ({ searchParams, issues }: Props) => {
           <Table.Row key={issue.id}>
             <Table.Cell>
               <Link href={`/issues/${issue.id}`}>{issue.title}</Link>
-              <div className="block md:hidden">
+              {/* <div className="block md:hidden">
                 <IssueStatusBadge status={issue.status} />
-              </div>
+              </div> */}
             </Table.Cell>
-            <Table.Cell className="hidden md:table-cell">
+            {/* <Table.Cell className="hidden md:table-cell">
               <IssueStatusBadge status={issue.status} />
-            </Table.Cell>
+            </Table.Cell> */}
             <Table.Cell className="hidden md:table-cell">
               {issue.createdAt.toDateString()}
             </Table.Cell>
@@ -71,12 +71,12 @@ const columns: {
   value: keyof Issue;
   className?: string;
 }[] = [
-  { label: "Issue", value: "title" },
-  {
-    label: "Status",
-    value: "status",
-    className: "hidden md:table-cell",
-  },
+  { label: "Blog", value: "title" },
+  //   {
+  //     label: "Status",
+  //     value: "status",
+  //     className: "hidden md:table-cell",
+  //   },
   {
     label: "Created",
     value: "createdAt",

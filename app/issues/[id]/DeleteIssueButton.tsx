@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { Spinner } from '@/app/components';
-import { AlertDialog, Button, Flex } from '@radix-ui/themes';
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { Spinner } from "@/app/components";
+import { AlertDialog, Button, Flex } from "@radix-ui/themes";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
   const router = useRouter();
@@ -14,8 +14,8 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
   const deleteIssue = async () => {
     try {
       setDeleting(true);
-      await axios.delete('/api/issues/' + issueId);
-      router.push('/issues/list');
+      await axios.delete("/api/issues/" + issueId);
+      router.push("/issues/list");
       router.refresh();
     } catch (error) {
       setDeleting(false);
@@ -28,14 +28,14 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
       <AlertDialog.Root>
         <AlertDialog.Trigger>
           <Button color="red" disabled={isDeleting}>
-            Delete Issue
+            Delete Blog
             {isDeleting && <Spinner />}
           </Button>
         </AlertDialog.Trigger>
         <AlertDialog.Content>
           <AlertDialog.Title>Confirm Deletion</AlertDialog.Title>
           <AlertDialog.Description>
-            Are you sure you want to delete this issue? This action cannot be
+            Are you sure you want to delete this blog? This action cannot be
             undone.
           </AlertDialog.Description>
           <Flex mt="4" gap="3">
@@ -46,7 +46,7 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
             </AlertDialog.Cancel>
             <AlertDialog.Action>
               <Button color="red" onClick={deleteIssue}>
-                Delete Issue
+                Delete Blog
               </Button>
             </AlertDialog.Action>
           </Flex>
@@ -56,7 +56,7 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
         <AlertDialog.Content>
           <AlertDialog.Title>Error</AlertDialog.Title>
           <AlertDialog.Description>
-            This issue could not be deleted.
+            This blog could not be deleted.
           </AlertDialog.Description>
           <Button
             color="gray"
