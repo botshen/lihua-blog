@@ -42,17 +42,17 @@ const IssueTable = ({ searchParams, issues }: Props) => {
                 }}
               >
                 {column.label}
+                {column.value === searchParams.orderBy &&
+                  (searchParams.orderDirection === "asc" ? (
+                    <ArrowUpIcon className="inline" />
+                  ) : (
+                    <ArrowDownIcon className="inline" />
+                  ))}
+                {(!searchParams.orderBy ||
+                  column.value !== searchParams.orderBy) && (
+                  <CaretSortIcon width="20" height="20" className="inline" />
+                )}
               </NextLink>
-              {column.value === searchParams.orderBy &&
-                (searchParams.orderDirection === "asc" ? (
-                  <ArrowUpIcon className="inline" />
-                ) : (
-                  <ArrowDownIcon className="inline" />
-                ))}
-              {(!searchParams.orderBy ||
-                column.value !== searchParams.orderBy) && (
-                <CaretSortIcon width="20" height="20" className="inline" />
-              )}
             </Table.ColumnHeaderCell>
           ))}
         </Table.Row>
