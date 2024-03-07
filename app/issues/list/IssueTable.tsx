@@ -1,6 +1,7 @@
 import { IssueStatusBadge } from "@/app/components";
 import { ArrowUpIcon } from "@radix-ui/react-icons";
 import { ArrowDownIcon } from "@radix-ui/react-icons";
+import { CaretSortIcon } from "@radix-ui/react-icons";
 
 import { Table } from "@radix-ui/themes";
 import Link from "next/link";
@@ -42,15 +43,16 @@ const IssueTable = ({ searchParams, issues }: Props) => {
               >
                 {column.label}
               </NextLink>
-              {/* {column.value === searchParams.orderBy && (
-                <ArrowUpIcon className="inline" />
-              )} */}
               {column.value === searchParams.orderBy &&
                 (searchParams.orderDirection === "asc" ? (
                   <ArrowUpIcon className="inline" />
                 ) : (
                   <ArrowDownIcon className="inline" />
                 ))}
+              {(!searchParams.orderBy ||
+                column.value !== searchParams.orderBy) && (
+                <CaretSortIcon width="20" height="20" className="inline" />
+              )}
             </Table.ColumnHeaderCell>
           ))}
         </Table.Row>
